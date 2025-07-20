@@ -8,7 +8,7 @@ LICENSE)
 </div>
 <br />
 <div align="center">
-    <b> Use Elixir, diamond  is kindness clone, origin go_straight.</b>
+    <b> Use Elixir, diamond is kindness clone, origin totolot.</b>
 </div>
 <br />
 <div align="center">
