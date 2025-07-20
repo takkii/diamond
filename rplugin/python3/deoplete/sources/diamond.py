@@ -4,7 +4,6 @@ import multiprocessing
 import numpy as np
 import os
 import pandas as pd
-import random
 import re
 import sys
 import traceback
@@ -55,9 +54,11 @@ class Source(Base):
                 ]
 
                 path = next(p for p in paths if os.path.exists(p))
+                el_dict: Optional[str] = 'dict.txt'
+                el_mod_fn = os.path.join(path, el_dict)
 
                 # Get Receiver/diamond behavior.
-                with open(os.path.join(path, 'dict.txt')) as r_meth:
+                with open(el_mod_fn) as r_meth:
                     # pandas and dask
                     index_ruby: Optional[list] = list(r_meth.readlines())
                     sort_ruby = np.array(index_ruby).tolist()
