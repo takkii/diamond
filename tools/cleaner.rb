@@ -23,11 +23,14 @@ class CleanRunner
       sel.grep(/\A#{Regexp.quote word}/)
     }
 
+    # check diamond.py path
+    git_dia = File.basename(File.expand_path("~/GitHub/diamond/rplugin/python3/deoplete/sources/diamond.py"), ".py") + "_log"
+
     while (line = Readline.readline(""))
       line.chomp!
 
       if line.match?(sel[0])
-        FileUtils.rm_rf(File.expand_path('~/diamond_log'))
+        FileUtils.rm_rf(File.expand_path('~/' + git_dia))
         puts ''
         puts 'Deleted, the existing diamond_log folder.'
         puts ''
@@ -47,8 +50,11 @@ class CleanRunner
   end
 
   def self.run
+    # check diamond.py path
+    git_dia = File.basename(File.expand_path("~/GitHub/diamond/rplugin/python3/deoplete/sources/diamond.py"), ".py") + "_log"
     encoding_style
-    if Dir.exist?(File.expand_path('~/diamond_log'))
+
+    if Dir.exist?(File.expand_path('~/' + git_dia))
       puts ''
       puts 'Already have a diamond_log folder.'
       delete
