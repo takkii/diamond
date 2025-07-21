@@ -8,7 +8,8 @@ LICENSE)
 </div>
 <br />
 <div align="center">
-    <b> Use Elixir, diamond is kindness clone, origin totolot.</b>
+    <b><p>diamond is kindness clone, origin totolot.</p></b>
+    <p>The Input Completion List Uses a Dictionary for elixir.</p>
 </div>
 <br />
 <div align="center">
