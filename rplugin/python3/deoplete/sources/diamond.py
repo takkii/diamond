@@ -1,7 +1,6 @@
 from dask.dataframe import from_pandas
 import gc
 import multiprocessing
-import numpy as np
 import os
 import pandas as pd
 import re
@@ -61,8 +60,7 @@ class Source(Base):
                 with open(el_mod_fn) as r_meth:
                     # pandas and dask
                     index_ruby: Optional[list] = list(r_meth.readlines())
-                    sort_ruby = np.array(index_ruby).tolist()
-                    pd_ruby = pd.Series(sort_ruby)
+                    pd_ruby = pd.Series(index_ruby)
                     st_r = pd_ruby.sort_index()
                     ddf = from_pandas(data=st_r,
                                       npartitions=multiprocessing.cpu_count())
