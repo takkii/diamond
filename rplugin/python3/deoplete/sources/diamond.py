@@ -79,11 +79,14 @@ class Source(Base):
         # TraceBack.
         except Exception:
             # Check, diamond.py path.
-            git_dia = File.basename(File.expand_path("~/GitHub/diamond/rplugin/python3/deoplete/sources/diamond.py"), ".py") + "_log"
+            git_dia = File.basename(
+                File.expand_path(
+                    "~/GitHub/diamond/rplugin/python3/deoplete/sources/diamond.py"
+                ), ".py") + "_log"
 
             # Load/Create LogFile.
             except_folder: Optional[str] = '~/' + git_dia
-            except_file: Optional[str] = '~/' + git_dia + 'error.log'
+            except_file: Optional[str] = '~/' + git_dia + '/error.log'
 
             # Load the dictionary.
             if os.path.isdir(os.path.expanduser(except_folder)):
