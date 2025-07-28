@@ -78,9 +78,19 @@ class Source(Base):
 
         # TraceBack.
         except Exception:
+            # diamond file path.
+            filepath = os.path.expanduser(
+                "~/.vim/plugged/diamond/rplugin/python3/deoplete/sources/diamond.py"
+            )
+
+            basename_without_ext = os.path.splitext(
+                os.path.basename(filepath))[0]
+            filename = (str(basename_without_ext) + "_log")
+
             # Load/Create LogFile.
-            diamond: Optional[str] = os.path.expanduser('~/diamond_log/')
-            db_w: Optional[str] = os.path.expanduser('~/diamond_log/debug.log')
+            diamond: Optional[str] = str(filename)
+            db_w: Optional[str] = os.path.expanduser('~/' + filename +
+                                                     '/debug.log')
 
             # Load the dictionary.
             if os.path.isdir(os.path.expanduser(diamond)):
